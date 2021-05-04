@@ -52,6 +52,7 @@ ChromecastTech = {
       this._requestTitle = options.requestTitleFn || function() { /* noop */ };
       this._requestSubtitle = options.requestSubtitleFn || function() { /* noop */ };
       this._requestCustomData = options.requestCustomDataFn || function() { /* noop */ };
+      this._modifyLoadRequestFn = options.modifyLoadRequestFn || function() { /* noop */ };
       // See `currentTime` function
       this._initialStartTime = options.startTime || 0;
 
@@ -178,6 +179,7 @@ ChromecastTech = {
       request = new chrome.cast.media.LoadRequest(mediaInfo);
       request.autoplay = true;
       request.currentTime = startTime;
+      request = this._modifyLoadRequestFn(request);
 
       this._isMediaLoading = true;
       this._hasPlayedCurrentItem = false;
