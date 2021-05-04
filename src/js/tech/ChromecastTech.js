@@ -222,6 +222,10 @@ ChromecastTech = {
       this._triggerTimeUpdateEvent();
    },
 
+   seeking: function() {
+      return false;
+   },
+
    /**
     * Returns the current playback time position.
     *
