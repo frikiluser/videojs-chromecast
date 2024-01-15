@@ -171,7 +171,7 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-sass');
    grunt.loadNpmTasks('grunt-postcss');
 
-   grunt.registerTask('build-js', [ 'browserify', 'uglify' ]);
+   grunt.registerTask('build-js', [ 'browserify' ]);
    grunt.registerTask('build-css', [ 'sass', 'postcss:styles' ]);
    grunt.registerTask('build', [ 'build-js', 'build-css', 'copy:images' ]);
    grunt.registerTask('develop', [ 'build', 'watch' ]);
